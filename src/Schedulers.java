@@ -16,16 +16,17 @@ public class Schedulers {
     }
 
     public static boolean PriorityScheduling() {
-        int minimum = Integer.MAX_VALUE;
-        int index = -1;
+       int maximum = Integer.MIN_VALUE;
+       int index = -1;
 
         for (int i = 0; i < priority.size(); i++) {
             int currPriority = priority.get(i);
-            if (currPriority < minimum) {
-                minimum = currPriority;
+            if (currPriority > maximum) {
+                maximum = currPriority;
                 index = i;
             }
         }
+
 
         if (index != -1) {
 
