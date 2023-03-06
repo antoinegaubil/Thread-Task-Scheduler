@@ -13,6 +13,7 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         readInput();
         PriorityScheduling();
+        SJF();
 
 
     }
@@ -21,6 +22,13 @@ public class Main {
         while (Schedulers.PriorityScheduling()) {
         }
     }
+
+    public static void SJF(){
+        System.out.println("\nSJF SCHEDULING\n");
+        while (Schedulers.SJF()) {
+        }
+    }
+
 
     public static void readInput() throws FileNotFoundException {
 
