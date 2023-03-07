@@ -12,33 +12,47 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         readInput();
-        PriorityScheduling();
-        SJF();
+        //PriorityScheduling();
+        //SJF();
+        //RoundRobin();
+        //FCFS();
+        FairShare();
 
 
     }
     public static void PriorityScheduling(){
         System.out.println("\nPRIORITY SCHEDULING\n");
-        while (Schedulers.PriorityScheduling()) {
+        while (Priority.PriorityScheduling()) { //loop until false is returned.
         }
     }
 
     public static void SJF(){
         System.out.println("\nSJF SCHEDULING\n");
-        while (Schedulers.SJF()) {
+        while (SJF.SJF()) {
         }
     }
     
     public static void FCFS(){
-         System.out.println("\FCFS SCHEDULING\n");
-        while (Schedulers.FCFS()) {
+         System.out.println("\nFCFS SCHEDULING\n");
+        while (FCFS.FCFS()) {
+        }
+    }
+    public static void RoundRobin(){
+        System.out.println("\nRound Robin\n");
+        while (RR.RoundRobin()) {
+        }
+    }
+
+    public static void FairShare(){
+        System.out.println("\nFair Share\n");
+        while (FairShare.FairShare()) {
         }
     }
 
 
     public static void readInput() throws FileNotFoundException {
 
-        Scanner input = new Scanner(new File("src/input.txt"));
+        Scanner input = new Scanner(new File("src/input.txt")); //read input file and put it in 3 different linked lists.
         while (input.hasNextLine()) {
             String line = input.nextLine();
             String[] cols = line.split(", ");
@@ -58,6 +72,12 @@ public class Main {
 
     public static LinkedList<Integer> getBursts() {
         return burst;
+    }
+
+    public static void printLists() {
+        System.out.println("Tasks: " + task);
+        System.out.println("Priority: " + priority);
+        System.out.println("Burst: " + burst);
     }
 
 
