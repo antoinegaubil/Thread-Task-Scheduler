@@ -190,6 +190,52 @@ public class Schedulers {
         // Print the results
         return true;
     }
+     public static boolean FCFS() {
+	int index= -1;
+	//List<Integer> indexList = new ArrayList<>();
+	int taskSize=task.size();
+	for (int i=0;i<taskSize;i++) {
+		index=Integer.parseInt(task.get(i));
+		index=i;
+	}
+           if( index!=-1) {
+            System.out.println("Will run : " + task.get(index));
+            System.out.println("Tid : " + pidTask.indexOf(task.get(index)));
+            System.out.println("Priority : " + priority.get(index));
+            System.out.println("Burst Time : " + burst.get(index));
+            System.out.println("\n");
+
+            currentBurst += burst.get(index);
+            turnaroundTime.add(currentBurst);
+            waitingTime.add(currentBurst - burst.get(index));
+
+            task.remove(index);
+            priority.remove(index);
+            burst.remove(index);
+
+            return true;
+        }
+           else {
+        	   int TurnaroundTime = 0;
+               int WaitingTime = 0;
+
+               for (int i = 0; i < pidTask.size(); i++) {
+                   int taskTurnaroundTime = turnaroundTime.get(i);
+                   int taskWaitingTime = waitingTime.get(i);
+
+                   TurnaroundTime += taskTurnaroundTime;
+                   WaitingTime += taskWaitingTime;
+               }
+
+               int averageTurnaroundTime = TurnaroundTime / pidTask.size();
+               int averageWaitingTime = WaitingTime / pidTask.size();
+
+               System.out.println("Average times: waiting [" + averageWaitingTime + "ms], turnaround: [" + averageTurnaroundTime + "ms]");
+
+               return false;
+           }
+        	  
+           }
 }
 
 
