@@ -28,6 +28,12 @@ public class Main {
         while (Schedulers.SJF()) {
         }
     }
+    
+    public static void FCFS(){
+         System.out.println("\FCFS SCHEDULING\n");
+        while (Schedulers.FCFS()) {
+        }
+    }
 
 
     public static void readInput() throws FileNotFoundException {
