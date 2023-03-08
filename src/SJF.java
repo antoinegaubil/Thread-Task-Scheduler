@@ -1,9 +1,9 @@
 import java.util.LinkedList;
 
-public class SJF {
-    private static LinkedList<String> task = Main.getTasks();
-    private static LinkedList<Integer> priority = Main.getPriorities();
-    private static LinkedList<Integer> burst = Main.getBursts();
+public class SJF extends Algorithm {
+    private static LinkedList<String> task = Driver.getTasks();
+    private static LinkedList<Integer> priority = Driver.getPriorities();
+    private static LinkedList<Integer> burst = Driver.getBursts();
     private static LinkedList<String> pidTask = new LinkedList<>(task);
     private static LinkedList<Integer> turnaroundTime = new LinkedList<>();
     private static LinkedList<Integer> waitingTime = new LinkedList<>();
@@ -66,5 +66,15 @@ public class SJF {
 
             return false;
         }
+    }
+
+    @Override
+    public void schedule() {
+
+    }
+
+    @Override
+    public Task pickNextTask() {
+        return null;
     }
 }

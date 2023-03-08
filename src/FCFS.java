@@ -1,13 +1,18 @@
 import java.util.LinkedList;
+import java.util.List;
 
-public class FCFS {
-    private static LinkedList<String> task = Main.getTasks();
-    private static LinkedList<Integer> priority = Main.getPriorities();
-    private static LinkedList<Integer> burst = Main.getBursts();
+public class FCFS extends Algorithm {
+    private static LinkedList<String> task = Driver.getTasks();
+    private static LinkedList<Integer> priority = Driver.getPriorities();
+    private static LinkedList<Integer> burst = Driver.getBursts();
     private static LinkedList<String> pidTask = new LinkedList<>(task);
     private static LinkedList<Integer> turnaroundTime = new LinkedList<>();
     private static LinkedList<Integer> waitingTime = new LinkedList<>();
     private static int currentBurst = 0;
+
+    public FCFS(List<Task> queue) {
+    }
+
 
     public static boolean FCFS() {
 
@@ -59,4 +64,13 @@ public class FCFS {
         }
     }
 
+    @Override
+    public void schedule() {
+
+    }
+
+    @Override
+    public Task pickNextTask() {
+        return null;
+    }
 }

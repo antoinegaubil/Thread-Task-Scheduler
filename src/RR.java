@@ -1,15 +1,15 @@
 import java.util.LinkedList;
 
-public class RR {
-    private static LinkedList<String> task = Main.getTasks();
-    private static LinkedList<Integer> priority = Main.getPriorities();
-    private static LinkedList<Integer> burst = Main.getBursts();
+public class RR extends Algorithm {
+    private static LinkedList<String> task = Driver.getTasks();
+    private static LinkedList<Integer> priority = Driver.getPriorities();
+    private static LinkedList<Integer> burst = Driver.getBursts();
     private static LinkedList<String> pidTask = new LinkedList<>(task);
     private static LinkedList<Integer> turnaroundTime = new LinkedList<>();
     private static LinkedList<Integer> waitingTime = new LinkedList<>();
     private static int currentBurst = 0;
 
-    public static boolean RoundRobin() {
+    public static boolean RR() {
         if (task.size() == 0) {
             int TurnaroundTime = 0;
             int WaitingTime = 0;
@@ -67,4 +67,13 @@ public class RR {
         return true;
     }
 
+    @Override
+    public void schedule() {
+
+    }
+
+    @Override
+    public Task pickNextTask() {
+        return null;
+    }
 }

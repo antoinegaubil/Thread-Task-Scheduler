@@ -21,9 +21,7 @@ public class Task
         this.tid = tidAllocator.getAndIncrement();
     }
 
-    /**
-     * Appropriate getters
-     */
+
     public String getName() {
         return name;
     }
