@@ -9,11 +9,11 @@ public class Driver
     public static LinkedList<Integer> taskQueue = new LinkedList<Integer>();
     public static void main(String[] args) throws IOException {
 
-        /*if (args.length != 2) {
+        if (args.length != 2) {
             System.err.println("java Driver FCFS schedule.txt");
             System.exit(0);
         }
-*/
+
         List<Task> queue = new ArrayList<Task>();
 
         Scanner input = new Scanner(new File("src/input.txt")); //read input file and put it in 3 different linked lists.
@@ -28,9 +28,9 @@ public class Driver
 
 
         Algorithm scheduler = null;
-        //String choice = args[0].toUpperCase();
+        String choice = args[0].toUpperCase();
 
-        switch("FCFS") {
+        switch(choice) {
             case "FCFS":
                 scheduler = new Algorithm.FCFS();
                 break;
