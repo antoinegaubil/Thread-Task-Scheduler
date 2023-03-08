@@ -8,6 +8,7 @@ public class FairShare {
     private static LinkedList<String> pidTask = new LinkedList<>(task);
     private static LinkedList<Integer> turnaroundTime = new LinkedList<>();
     private static LinkedList<Integer> waitingTime = new LinkedList<>();
+    private static LinkedList<String> taskQueue = new LinkedList<>(task);
     private static float currentBurst = 0;
 
     public static boolean FairShare() {
@@ -43,11 +44,10 @@ public class FairShare {
         //output will be {2=[1, 4], 3=[2, 3]} --> user id 2 are present at indexes 1 and 4
 
 
-
         float burstTime = 0;
         int realQuantum = 0;
 
-        for(int i = 0; i < task.size(); i++) {
+        for (int i = 0; i < task.size(); i++) {
 
             burstTime = burst.get(i);
             System.out.println("Will run : " + task.get(i));
@@ -56,12 +56,12 @@ public class FairShare {
             System.out.println("Burst Time : " + burstTime);
             System.out.println("\n");
 
-            if(result.containsKey(priority.get(i))) { //if the current priority user id is within the result list explained above
+            if (result.containsKey(priority.get(i))) { //if the current priority user id is within the result list explained above
                 List<Integer> indices = result.get(priority.get(i));
                 realQuantum = (10 / (priority.size() - result.size())) / indices.size(); //set up a new quantum (10 / (unique amount of user ids) ) / how many processes in that specific user id
 
             } else {
-                realQuantum = 10 /(priority.size() - result.size()); // if not simply set the quantum as 10 / number of unique user id
+                realQuantum = 10 / (priority.size() - result.size()); // if not simply set the quantum as 10 / number of unique user id
             }
 
             if (burstTime <= realQuantum) { //that means the task will finish in this loop.
@@ -104,9 +104,7 @@ public class FairShare {
 
                 if (valueToIndexMap.containsKey(priority.get(i))) { //if the index is already in the map
                     valueToIndexMap.get(priority.get(i)).add(i); //add another index at the specified key.
-                }
-
-                else {
+                } else {
                     List<Integer> indexList = new ArrayList<>();
                     indexList.add(i); // add a key to the map
                     valueToIndexMap.put(priority.get(i), indexList);//add the index corresponding to the key
@@ -124,10 +122,5 @@ public class FairShare {
 
         return result;
     }
-
-
-
-
-
 
 }

@@ -8,6 +8,7 @@ public class Main {
     public static LinkedList<String> task = new LinkedList<String>();
     public static LinkedList<Integer> priority = new LinkedList<Integer>();
     public static LinkedList<Integer> burst = new LinkedList<Integer>();
+    public static LinkedList<Integer> taskQueue = new LinkedList<Integer>();
 
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -73,6 +74,8 @@ public class Main {
     public static LinkedList<Integer> getBursts() {
         return burst;
     }
+
+    public static LinkedList<Integer> getTaskQueue() {return taskQueue; }
 
     public static void printLists() {
         System.out.println("Tasks: " + task);
